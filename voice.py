@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import dashscope
 import time
+from pathlib import Path
 from dashscope.audio.tts_v2 import SpeechSynthesizer
 
 dashscope.api_key = "sk-36ee1c702e194855b9588f646a5836cc"
@@ -33,7 +34,9 @@ except Exception as exc:
 from datetime import datetime
 
 voice_name = "陈炳润"
-filename = f"{voice_name}_{datetime.now().strftime('%Y%m%d')}.mp3"
+output_dir = Path("sound")
+output_dir.mkdir(exist_ok=True)
+filename = output_dir / f"{voice_name}_{datetime.now().strftime('%Y%m%d')}.mp3"
 
 with open(filename, 'wb') as f:
     f.write(audio)
