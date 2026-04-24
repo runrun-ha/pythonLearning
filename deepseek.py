@@ -47,7 +47,7 @@ if prompt:
         stream=True
     )
 
-    # 使用 st.empty() 占位符实现流式输出
+    # 使用 st.empty()
     with st.chat_message("assistant"):
         placeholder = st.empty()
         chunk_data = ""
